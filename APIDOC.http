@@ -1,0 +1,161 @@
+#-------------------ACCOUNT----------------------#
+# api call to create admin
+###
+POST  http://127.0.0.1:8000/owner/register/
+Content-Type: application/json
+
+{
+    "username":"admin",
+    "email":"admin@gmail.com",
+    "password":"admin@123"
+}
+
+
+# api call to create player
+###
+POST  http://127.0.0.1:8000/player/register/
+Content-Type: application/json
+
+{
+    "username":"player",
+    "email":"player@gmail.com",
+    "password":"player@123"
+}
+
+
+
+
+
+
+
+#-------------------TURF-------------------------#
+
+# api call to list
+
+###
+GET http://127.0.0.1:8000/turf/
+Accept: application/json
+Authorization: Basic admin:admin@123
+
+# api call to create
+
+###
+POST  http://127.0.0.1:8000/turf/
+Content-Type: application/json
+Authorization: Basic admin:admin@123
+
+{
+    "name":"TPR TURF",
+    "location":"TPR",
+    "address":"Choondal, KKM",
+    "description":"Spsasfbjfjdklk",
+    "opening_time":"06:00",
+    "closing_time":"2300",
+    "day_price":"550",
+    "night_price":"2000",
+    "facilities":"Parking, Wash Room"
+}
+
+# api call to retrieve
+
+###
+GET http://127.0.0.1:8000/turf/2/
+Accept: application/json
+Authorization: Basic admin:admin@123
+
+
+# api call to update
+
+###
+PUT  http://127.0.0.1:8000/turf/2/
+Content-Type: application/json
+Authorization: Basic admin:admin@123
+
+{
+    "name":"CKLLLLL TURF",
+    "location":"Chirakkal",
+    "address":"Chirakkal center, Chirakkal",
+    "description":"dftytrewer",
+    "opening_time":"06:00",
+    "closing_time":"20:00",
+    "day_price":"500",
+    "night_price":"2000",
+    "facilities":"Parking, Wash Room"
+}
+
+
+# api call to delete
+
+###
+DELETE  http://127.0.0.1:8000/turf/4/
+Authorization: Basic admin:admin@123
+
+
+
+
+
+
+#---------------------------------BOOKING--------------------------#
+
+#api call to create
+###
+POST  http://127.0.0.1:8000/booking/
+Content-Type: application/json
+Authorization: Basic player:player@123
+
+{
+    "name":" abcd",
+    "phone":7888370000,
+    "email":"abcd@gmail.com",
+    "turf":1,
+    "match_date":"2026-11-11",
+    "duration":2,
+    "start_time":"10:00"
+
+}
+
+#api call to retreive
+###
+GET  http://127.0.0.1:8000/booking/4/
+Accept : application/json
+
+
+#api call to update
+###
+PUT  http://127.0.0.1:8000/booking/3/
+Content-Type: application/json
+
+{
+    "name":"Sooraj KJ",
+    "phone":8036777777899094567780000,
+    "email":"sooraj@gmail.com",
+    "turf":1,
+    "match_date":"2026-11-10",
+    "duration":2,
+    "start_time":"13:00"
+
+}
+
+
+
+# api call to delete
+###
+DELETE  http://127.0.0.1:8000/booking/4/
+
+
+
+########## booking summary ############
+
+#  api call to view bookings
+###
+POST   http://127.0.0.1:8000/booking/summary/
+Content-Type: application/json
+
+{
+    "turf":1,
+    "match_date":"2026-11-10"
+}
+
+
+
+
